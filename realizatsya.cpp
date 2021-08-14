@@ -58,19 +58,12 @@ void DataReading(StudentData* (&d), int& n, string filename)
         for (int i=0;i<n;i++)
         {
             reading>>fullname.surname>>fullname.name>>fullname.patronymic;
-            
             reading>>dateOfBirth.day>>dateOfBirth.month>>dateOfBirth.year;
-            
             reading>>univer.entryYear;
-            
             reading>>univer.faculty;
-            
             reading>>univer.department;
-            
             reading>>univer.groupNumber;
-            
             reading>>univer.recordBookNumber;
-            
             reading>>univer.sex;
             
             d[i].DataEntry(fullname, dateOfBirth, univer);
@@ -176,26 +169,88 @@ void DataAdding(StudentData* (&d), int& n)
     
     d[size].DataEntry(fullname, dateOfBirth, univer);
     
-    cout<<"Done!";
+    cout<<"Done!"<<endl;;
     
     delete[] buf;
 }
 
 void DeleteData(StudentData* (&d), int& n)
 {
-    int l;
-    StudentData* buf=new StudentData[l];
+    int f=0;
+    StudentData* buf=new StudentData[f];
     
     cout<<"Введите номер студента: ";
-    cin>>l;
-    l--;
+    cin>>f;
+    f--;
     
-    if (l>=0 && l<n)
+    if (f>=0 && f<n)
     {
         DataCopy(buf, d, n);
         int g=0;
         n--;
         
         d=new StudentData[n];
+        
+        for (int i=0;i<n;i++)
+        {
+            if (i != f)
+            {
+                d[g]=buf[i];
+                g++;
+            }
+        }
+        cout<<"Done!"<<endl;
     }
+    else
+        cout<<"Error!!!"<<endl;
+    
+    delete[] buf;
+}
+
+void Sorting(StudentData* d, int n)
+{
+    StudentData buf;
+    
+    for(int i=0;i<n;i++)
+    {
+        for(int j=i+1;j<n;j++){
+            if(d[i].GetFullname().surname>d[j].GetFullname().surname || d[i].GetFullname().name>d[j].GetFullname().name || d[i].GetFullname().patronymic>d[j].GetFullname().patronymic)
+            {
+                buf=d[i];
+                d[i]=d[j];
+                d[j]=buf;
+            }
+        }
+    }
+    cout<<"Done!"<<endl;
+}
+
+void DataRecording(StudentData* d, int n, string filename)
+{
+    ofstream recording;
+    
+    if(recording)
+    {
+        recording<<n<<endl;
+        for(int i=0;i<n;i++)
+        {
+            recording<<"ФИО: "<<d[i].GetFullname().surname<<" "<<d[i].GetFullname().name<<" "<<d[i].GetFullname().patronymic<<endl;
+            recording<<"Дата рождения: "<<d[i].GetDate().day<<"-"<<d[i].GetDate().month<<"-"<<d[i].GetDate().year<<"-"<<endl;
+            recording<<"Год поступления: "<<d[i].GetUniverInfo().entryYear<<endl;
+            recording<<"Факультет: "<<d[i].GetUniverInfo().faculty<<endl;
+            recording<<"Кафедра: "<<d[i].GetUniverInfo().department<<endl;
+            recording<<"Группа: "<<d[i].GetUniverInfo().groupNumber<<endl;
+            recording<<"Номер зачетной книжки: "<<d[i].GetUniverInfo().recordBookNumber<<endl;
+            recording<<"Пол: "<<d[i].GetUniverInfo().sex<<endl;
+            
+            if (i < n-1)
+                recording <<endl;
+        }
+    }
+    else
+        cout<<"Error!!! file closed"<<endl;
+    
+    cout<<"Done!"<<endl;
+    
+    recording.close();
 }

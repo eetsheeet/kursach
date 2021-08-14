@@ -42,22 +42,32 @@ private:
     studentinfo fullname;
     date dateOfBirth;
     universitet univer;
-   // sessiya session;
+
 public:
     StudentData();
-    StudentData(studentinfo _fullname, date _dateOfBirth, universitet _univer/*, sessiya _session*/);
+    StudentData(studentinfo _fullname, date _dateOfBirth, universitet _univer);
     ~StudentData();
     
     void Print();
-    void DataEntry(studentinfo _fullname, date _dateOfBirth, universitet _univer/*, sessiya _session*/);
+    void DataEntry(studentinfo _fullname, date _dateOfBirth, universitet _univer);
     studentinfo GetFullname() {return fullname;}
     date GetDate() {return dateOfBirth;}
-    struct universitet GetUniverInfo() {return univer;}
-    //struct sessiya GetSessionResults() {return session;}
+    universitet GetUniverInfo() {return univer;}
+ 
     
     StudentData& operator = (StudentData sd);
 };
 
 //class SessionResults
-
-
+//{
+//private:
+//    sessiya session;
+//public:
+//    SessionResults();
+//    SessionResults(sessiya _session);
+//    ~SessionResults();
+//
+//    void Print_s();
+//    void ResultsEntry(sessiya _session);
+//    sessiya GetSession(){return session;}
+//};

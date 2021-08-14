@@ -16,9 +16,7 @@ StudentData::StudentData()
     univer.groupNumber="";
     univer.recordBookNumber="";
     univer.sex=1;
-    
-//    session.subject="";
-//    session.mark=0;
+
 }
 
 StudentData::StudentData(studentinfo _fullname, date _dateOfBirth, universitet _univer/*, sessiya _session*/)
@@ -37,9 +35,6 @@ StudentData::StudentData(studentinfo _fullname, date _dateOfBirth, universitet _
     univer.groupNumber=_univer.groupNumber;
     univer.recordBookNumber=_univer.recordBookNumber;
     univer.sex=_univer.sex;
-    
-//    session.subject=_session.subject;
-//    session.mark=_session.mark;
 }
 
 StudentData::~StudentData()
@@ -55,12 +50,10 @@ void StudentData:: Print()
     cout<<"Кафедра: "<<univer.department<<endl;
     cout<<"Группа: "<<univer.groupNumber<<endl;
     cout<<"Номер зачетной книжки"<<univer.recordBookNumber<<endl;
-    cout<<"Пол: "<<univer.sex<<endl;
-    //cout<<"Предмет: "<<session.subject<<endl;
-    //cout<<"Оценка: "<<session.mark<<endl;
+    cout<<"Пол: "<<univer.sex<<endl; 
 }
 
-void StudentData:: DataEntry(studentinfo _fullname, date _dateOfBirth, universitet _univer/*, sessiya _session*/)
+void StudentData:: DataEntry(studentinfo _fullname, date _dateOfBirth, universitet _univer)
 {
     fullname.surname=_fullname.surname;
     fullname.name=_fullname.name;
@@ -97,9 +90,34 @@ StudentData& StudentData::operator=(StudentData sd)
     this->univer.groupNumber=sd.univer.groupNumber;
     this->univer.recordBookNumber=sd.univer.recordBookNumber;
     this-> univer.sex=sd.univer.sex;
-    
-//    this->session.subject=sd.session.subject;
-//    this->session.mark=sd.session.mark;
 
     return *this;
 }
+
+//SessionResults::SessionResults()
+//{
+//        session.subject="";
+//        session.mark=0;
+//}
+//
+//SessionResults::SessionResults(sessiya _session)
+//{
+//        session.subject=_session.subject;
+//        session.mark=_session.mark;
+//}
+//
+//SessionResults::~SessionResults()
+//{
+//}
+//
+//void SessionResults:: Print_s()
+//{
+//    cout<<"Предмет: "<<session.subject<<endl;
+//    cout<<"Оценка: "<<session.mark<<endl;
+//}
+//
+//void SessionResults:: ResultsEntry(sessiya _session)
+//{
+//    session.subject=_session.subject;
+//    session.mark=_session.mark;
+//}

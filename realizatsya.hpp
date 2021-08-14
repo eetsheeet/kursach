@@ -10,5 +10,5 @@ void DeleteData(StudentData* (&d), int& n);
 void DataChange(StudentData* d, int n);
 //void Broke(StudentData*);
 void Sorting(StudentData* d, int n);
-void DataSaving(StudentData* d, int n, string filename);
+void DataRecording(StudentData* d, int n, string filename);
 
