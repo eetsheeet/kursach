@@ -11,4 +11,4 @@ void DataChange(StudentData* d, int n);
 //void Broke(StudentData*);
 void Sorting(StudentData* d, int n);
 void DataRecording(StudentData* d, int n, string filename);
-
+void chooseAction(int);
