@@ -43,7 +43,7 @@ StudentData::~StudentData()
 
 void StudentData:: Print()
 {
-    cout<<"ФИО: "<<fullname.surname<<fullname.name<<fullname.patronymic<<endl;
+    cout<<"ФИО: "<<fullname.surname<<" "<<fullname.name<<" "<<fullname.patronymic<<endl;
     cout<<"Дата рождения: "<<dateOfBirth.day<<"-"<<dateOfBirth.month<<"-"<<dateOfBirth.year<<endl;
     cout<<"Год поступления: "<<univer.entryYear<<endl;
     cout<<"Факультет: "<<univer.faculty<<endl;
