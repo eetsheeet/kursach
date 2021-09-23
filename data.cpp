@@ -50,7 +50,7 @@ void StudentData:: Print()
     cout<<"Кафедра: "<<univer.department<<endl;
     cout<<"Группа: "<<univer.groupNumber<<endl;
     cout<<"Номер зачетной книжки"<<univer.recordBookNumber<<endl;
-    cout<<"Пол: "<<univer.sex<<endl; 
+    cout<<"Пол: "<<univer.sex<<endl;
 }
 
 void StudentData:: DataEntry(studentinfo _fullname, date _dateOfBirth, universitet _univer)

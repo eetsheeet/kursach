@@ -39,7 +39,7 @@ void chooseAction(int choice)
                 if(action==1)
                     DataEntry(d, size_);
                 else
-                    DataReading(d, size_, "/Users/alexey/Desktop/kursach/input.txt");
+                    DataReading(d, size_, "/Users/alexey/Desktop/kursach/kursach/kursach/input.txt");
 
                 Menu();
                 break;

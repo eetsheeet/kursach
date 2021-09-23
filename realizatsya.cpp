@@ -15,16 +15,16 @@ void DataEntry(StudentData* (&d), int& n)
     for (int i=0;i<n;i++)
     {
         cout<<"Введите ФИО: ";
-        cin>>fullname.surname>>fullname.name>>fullname.patronymic;
+      //  getline(cin, fullname.surname,fullname.name,fullname.patronymic);
         
         cout<<"Введите дату рождения: ";
         cin>>dateOfBirth.day>>dateOfBirth.month>>dateOfBirth.year;
         
         cout<<"Введите год поступления: ";
         cin>>univer.entryYear;
-        
+                                                                
         cout<<"Введите факультет: ";
-        cin>>univer.faculty;
+        getline(cin, univer.faculty);
         
         cout<<"Введите кафедру: ";
         cin>>univer.department;
@@ -69,10 +69,10 @@ void DataReading(StudentData* (&d), int& n, string filename)
             d[i].DataEntry(fullname, dateOfBirth, univer);
 
         }
-        cout<<"Done!";
+        cout<<"Done!"<<endl;
     }
     else
-        cout<<"Error!!!";
+        cout<<"Error!!!"<<endl;
     
     reading.close();
 }
